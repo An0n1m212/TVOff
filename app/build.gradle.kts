@@ -1,16 +1,18 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.chaquo.python")
 }
 android {
-    namespace = "app.tvoff"
+    namespace = "app.tvoffgtv"
     compileSdk = 34
     defaultConfig {
-        applicationId = "app.tvoff"
+        applicationId = "app.tvoffgtv"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
+        ndk { abiFilters += listOf("arm64-v8a", "armeabi-v7a") }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -18,6 +20,9 @@ android {
     }
     kotlinOptions { jvmTarget = "17" }
 }
-dependencies {
-    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+chaquopy {
+    defaultConfig {
+        version = "3.11"
+        pip { install("androidtvremote2") }
+    }
 }

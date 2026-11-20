@@ -4,5 +4,5 @@ pluginManagement {
 dependencyResolutionManagement {
     repositories { google(); mavenCentral() }
 }
-rootProject.name = "TvOff"
+rootProject.name = "TvOffGTV"
 include(":app")
